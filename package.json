@@ -1,0 +1,130 @@
+{
+  "name": "vortex-language",
+  "displayName": "Vortex Language Support",
+  "description": "Syntax highlighting, snippets, and tooling for Thunderstone Vortex (.vs) and ifdef-preprocessed (.src) source files.",
+  "version": "0.4.2",
+  "publisher": "thunderstone",
+  "author": {
+    "name": "Thunderstone Software LLC"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Thunderstone-Software/vortex-vscode"
+  },
+  "homepage": "https://github.com/Thunderstone-Software/vortex-vscode#readme",
+  "bugs": {
+    "url": "https://github.com/Thunderstone-Software/vortex-vscode/issues"
+  },
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Snippets"
+  ],
+  "keywords": [
+    "vortex",
+    "texis",
+    "webinator",
+    "thunderstone"
+  ],
+  "main": "./extension.js",
+  "activationEvents": [],
+  "contributes": {
+    "languages": [
+      {
+        "id": "vortex",
+        "aliases": ["Vortex", "vortex"],
+        "extensions": [".vs"],
+        "configuration": "./language-configuration.json"
+      },
+      {
+        "id": "vortex-src",
+        "aliases": ["Vortex (ifdef)", "vortex-src"],
+        "extensions": [".src"],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "vortex",
+        "scopeName": "source.vortex",
+        "path": "./syntaxes/vortex.tmLanguage.json"
+      },
+      {
+        "language": "vortex-src",
+        "scopeName": "source.vortex.src",
+        "path": "./syntaxes/vortex-src.tmLanguage.json"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "vortex",
+        "path": "./snippets/vortex.json"
+      },
+      {
+        "language": "vortex-src",
+        "path": "./snippets/vortex.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "vortex.preprocessSrc",
+        "title": "Vortex: Preprocess .src with ifdef",
+        "category": "Vortex"
+      },
+      {
+        "command": "vortex.openDocs",
+        "title": "Vortex: Open Online Documentation",
+        "category": "Vortex"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "vortex.preprocessSrc",
+          "when": "resourceLangId == vortex-src",
+          "group": "vortex"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "vortex.preprocessSrc",
+          "when": "resourceLangId == vortex-src"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Vortex",
+      "properties": {
+        "vortex.ifdefPath": {
+          "type": "string",
+          "default": "",
+          "description": "Path to the `ifdef` awk script. If empty, the extension searches the workspace root and parents."
+        },
+        "vortex.ifdefDefines": {
+          "type": "string",
+          "default": "",
+          "description": "Comma-separated DEFINED= macros passed to ifdef (e.g. `APPLIANCE,FOO=bar`)."
+        },
+        "vortex.ifdefExtraArgs": {
+          "type": "array",
+          "items": { "type": "string" },
+          "default": [],
+          "description": "Additional `-v key=value` arguments passed to ifdef."
+        },
+        "vortex.useGitignore": {
+          "type": "boolean",
+          "default": true,
+          "description": "Index only files known to git (`git ls-files --cached --others --exclude-standard`). This honors .gitignore and naturally skips generated build/dist trees. Falls back to `vortex.indexExclude` for non-git workspaces."
+        },
+        "vortex.indexExclude": {
+          "type": "string",
+          "default": "{**/node_modules/**,**/.git/**,**/build/**,**/build-*/**,**/dist/**,**/usr/local/**,**/out/**}",
+          "description": "Fallback glob of paths excluded from the workspace function index when `vortex.useGitignore` is off or the workspace is not a git repo."
+        }
+      }
+    }
+  }
+}

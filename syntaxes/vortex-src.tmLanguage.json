@@ -1,0 +1,51 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Vortex (ifdef)",
+  "scopeName": "source.vortex.src",
+  "patterns": [
+    { "include": "#ifdefLineComment" },
+    { "include": "#ifdefDirective" },
+    { "include": "#macroRef" },
+    { "include": "source.vortex" }
+  ],
+  "repository": {
+    "ifdefLineComment": {
+      "match": "^\\s*##.*$",
+      "name": "comment.line.double-number-sign.ifdef"
+    },
+    "ifdefDirective": {
+      "begin": "^\\s*(#)(ifdef|ifndef|if|else|elif|elseif|endif|define|undef|include|error|warning|for|endfor|htmlesc|endhtmlesc|stackdump|line|pragma)\\b",
+      "beginCaptures": {
+        "1": { "name": "punctuation.definition.directive.ifdef" },
+        "2": { "name": "keyword.control.directive.ifdef" }
+      },
+      "end": "$",
+      "name": "meta.preprocessor.ifdef",
+      "patterns": [
+        {
+          "match": "\"[^\"]*\"",
+          "name": "string.quoted.double.ifdef"
+        },
+        {
+          "match": "<[^>]*>",
+          "name": "string.quoted.other.ifdef"
+        },
+        {
+          "match": "\\b[A-Z_][A-Z0-9_]*\\b",
+          "name": "entity.name.constant.macro.ifdef"
+        },
+        {
+          "match": "\\b\\d+\\b",
+          "name": "constant.numeric.ifdef"
+        }
+      ]
+    },
+    "macroRef": {
+      "match": "\\(#\\)([A-Za-z_][A-Za-z0-9_-]*)\\(#\\)",
+      "name": "entity.name.constant.macro.ref.ifdef",
+      "captures": {
+        "1": { "name": "entity.name.constant.macro.ifdef" }
+      }
+    }
+  }
+}

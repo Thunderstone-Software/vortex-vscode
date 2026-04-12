@@ -1,0 +1,82 @@
+{
+  "Script header": {
+    "prefix": "vxscript",
+    "body": [
+      "<script language=vortex>",
+      "<db=${1:/path/to/db}>",
+      "",
+      "<a name=main>",
+      "  $0",
+      "</a>",
+      "",
+      "</script>"
+    ],
+    "description": "Vortex script skeleton"
+  },
+  "Function": {
+    "prefix": "vxa",
+    "body": [
+      "<a name=${1:funcName}${2: public}>",
+      "  $0",
+      "</a>"
+    ],
+    "description": "Vortex <a name=...> function"
+  },
+  "If/else": {
+    "prefix": "vxif",
+    "body": [
+      "<if ${1:\\$var} ${2:eq} ${3:value}>",
+      "  $0",
+      "<else>",
+      "</if>"
+    ]
+  },
+  "Loop": {
+    "prefix": "vxloop",
+    "body": [
+      "<loop ${1:\\$var}>",
+      "  $0",
+      "</loop>"
+    ]
+  },
+  "While": {
+    "prefix": "vxwhile",
+    "body": [
+      "<while ${1:\\$cond}>",
+      "  $0",
+      "</while>"
+    ]
+  },
+  "SQL query": {
+    "prefix": "vxsql",
+    "body": [
+      "<sql${1: NULL=\\$empty} \"${2:select * from table}\">",
+      "  $0",
+      "</sql>"
+    ]
+  },
+  "Export var": {
+    "prefix": "vxexport",
+    "body": ["<export \\$${1:var} ${2:QUERY USEROK}>"]
+  },
+  "ifdef block": {
+    "prefix": "ifdef",
+    "body": [
+      "#ifdef ${1:MACRO}",
+      "$0",
+      "#endif <!-- $1 -->"
+    ]
+  },
+  "ifndef block": {
+    "prefix": "ifndef",
+    "body": [
+      "#ifndef ${1:MACRO}",
+      "$0",
+      "#endif <!-- !$1 -->"
+    ]
+  },
+  "include": {
+    "prefix": "include",
+    "body": ["#include \"${1:file.src}\""]
+  }
+}

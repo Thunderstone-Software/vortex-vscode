@@ -1,0 +1,142 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Vortex",
+  "scopeName": "source.vortex",
+  "patterns": [
+    { "include": "#comment" },
+    { "include": "#variableEscape" },
+    { "include": "#variableAssign" },
+    { "include": "#vortexCloseTag" },
+    { "include": "#vortexOpenTag" },
+    { "include": "#variable" },
+    { "include": "#htmlTag" }
+  ],
+  "repository": {
+    "comment": {
+      "name": "comment.block.vortex",
+      "begin": "<!--",
+      "end": "-->",
+      "beginCaptures": { "0": { "name": "punctuation.definition.comment.vortex" } },
+      "endCaptures":   { "0": { "name": "punctuation.definition.comment.vortex" } }
+    },
+
+    "variableEscape": {
+      "match": "\\$\\$",
+      "name": "constant.character.escape.vortex"
+    },
+
+    "variableAssign": {
+      "name": "meta.tag.assignment.vortex",
+      "begin": "(<)(\\$)('[^']*'|\"[^\"]*\"|[A-Za-z_][A-Za-z0-9_.]*)\\s*(=)",
+      "beginCaptures": {
+        "1": { "name": "punctuation.definition.tag.begin.vortex" },
+        "2": { "name": "punctuation.definition.variable.vortex" },
+        "3": { "name": "variable.other.vortex" },
+        "4": { "name": "keyword.operator.assignment.vortex" }
+      },
+      "end": ">",
+      "endCaptures": {
+        "0": { "name": "punctuation.definition.tag.end.vortex" }
+      },
+      "patterns": [
+        { "include": "#tagInside" }
+      ]
+    },
+
+    "variable": {
+      "match": "(\\$)('[^']*'|\"[^\"]*\"|[A-Za-z_][A-Za-z0-9_.]*)(?:(:)([A-Za-z][A-Za-z0-9_]*))?",
+      "captures": {
+        "1": { "name": "punctuation.definition.variable.vortex" },
+        "2": { "name": "variable.other.vortex" },
+        "3": { "name": "punctuation.separator.modifier.vortex" },
+        "4": { "name": "support.function.modifier.vortex" }
+      }
+    },
+
+    "vortexCloseTag": {
+      "match": "(?i)(</)(a|if|else|elseif|switch|case|default|loop|while|sql|verb|capture|readln|write|exec|timport|script|timeout)(>)",
+      "captures": {
+        "1": { "name": "punctuation.definition.tag.begin.vortex" },
+        "2": { "name": "keyword.control.vortex" },
+        "3": { "name": "punctuation.definition.tag.end.vortex" }
+      }
+    },
+
+    "vortexOpenTag": {
+      "begin": "(?i)(<)(a|if|else|elseif|switch|case|default|loop|while|sql|db|user|pass|readln|write|exec|capture|timport|break|continue|return|verb|timeout|export|putmsg|entryfunc|exitfunc|uses|schedule|cookies|stack|tracesql|sqlcache|trap|addtrailingslash|pragma|script|sum|fmt|strfmt|fmtcp|fmtinfo|mm|sb|apicp|apiinfo|sqlcp|pagelinks|flush|header|rex|split|sandr|strstr|strstri|substr|strcmp|strcmpi|strncmp|strnicmp|strlen|strrev|upper|lower|strfold|strfoldcmp|sort|uniq|uniqcount|count|strtonum|rand|randpick|srand|exit|fetch|submit|urlinfo|urltext|urllinks|urlcp|urlutil|nslookup|nsinfo|options|radiobutton|checkbox|doctype|cal|calrule|calendar|caldate|clist|slist|wordlist|wordcount|wordoccurrencecounts|createdb|adminsql|loguser|userstats|resetstats|abstract|rmcommon|pwencrypt|encrypt|decrypt|readvars|varinfo|getvar|setvar|push|pop|slice|vxcp|vxinfo|hash|geo2code|code2geo|pdfxml|xtree|profiler|read|send|spew|sleep|sysinfo|syscp|sysutil|stat|watchpath|getpid|procexists|kill|loadavg)\\b",
+      "beginCaptures": {
+        "1": { "name": "punctuation.definition.tag.begin.vortex" },
+        "2": { "name": "keyword.control.vortex" }
+      },
+      "end": ">",
+      "endCaptures": {
+        "0": { "name": "punctuation.definition.tag.end.vortex" }
+      },
+      "name": "meta.tag.vortex",
+      "patterns": [
+        { "include": "#tagInside" }
+      ]
+    },
+
+    "tagInside": {
+      "patterns": [
+        { "include": "#comment" },
+        { "include": "#variableEscape" },
+        { "include": "#stringDouble" },
+        { "include": "#stringSingle" },
+        { "include": "#variable" },
+        {
+          "match": "\\b([A-Za-z_][A-Za-z0-9_-]*)\\s*(=)",
+          "captures": {
+            "1": { "name": "entity.other.attribute-name.vortex" },
+            "2": { "name": "punctuation.separator.key-value.vortex" }
+          }
+        },
+        {
+          "match": "\\b[A-Za-z_][A-Za-z0-9_-]*\\b",
+          "name": "entity.other.attribute-name.vortex"
+        },
+        {
+          "match": "\\b\\d+\\b",
+          "name": "constant.numeric.vortex"
+        }
+      ]
+    },
+
+    "stringDouble": {
+      "name": "string.quoted.double.vortex",
+      "begin": "\"",
+      "end": "\"",
+      "patterns": [
+        { "include": "#variableEscape" },
+        { "include": "#variable" }
+      ]
+    },
+
+    "stringSingle": {
+      "name": "string.quoted.single.vortex",
+      "begin": "'",
+      "end": "'",
+      "patterns": [
+        { "include": "#variableEscape" },
+        { "include": "#variable" }
+      ]
+    },
+
+    "htmlTag": {
+      "name": "meta.tag.html.vortex",
+      "begin": "(</?)([A-Za-z_][A-Za-z0-9_-]*)",
+      "beginCaptures": {
+        "1": { "name": "punctuation.definition.tag.begin.html.vortex" },
+        "2": { "name": "entity.name.tag.html.vortex" }
+      },
+      "end": "/?>",
+      "endCaptures": {
+        "0": { "name": "punctuation.definition.tag.end.html.vortex" }
+      },
+      "patterns": [
+        { "include": "#tagInside" }
+      ]
+    }
+  }
+}

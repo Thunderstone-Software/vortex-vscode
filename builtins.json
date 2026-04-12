@@ -1,0 +1,1096 @@
+{
+  "sum": {
+    "names": [
+      "sum"
+    ],
+    "url": "sum.html",
+    "summary": "return sum of variable values",
+    "synopsis": "<sum $fmt $var [$var ...]>"
+  },
+  "fmt": {
+    "names": [
+      "fmt",
+      "strfmt"
+    ],
+    "url": "fmt_strfmt.html",
+    "summary": "formatted output",
+    "synopsis": "<fmt format [arg ...]>"
+  },
+  "strfmt": {
+    "names": [
+      "fmt",
+      "strfmt"
+    ],
+    "url": "fmt_strfmt.html",
+    "summary": "formatted output",
+    "synopsis": "<fmt format [arg ...]>"
+  },
+  "fmtcp": {
+    "names": [
+      "fmtcp"
+    ],
+    "url": "fmtcp.html",
+    "summary": "set fmt control parameters",
+    "synopsis": "<fmtcp $setting [args ...]>"
+  },
+  "fmtinfo": {
+    "names": [
+      "fmtinfo"
+    ],
+    "url": "fmtinfo.html",
+    "summary": "get fmt control parameters",
+    "synopsis": "<fmtinfo $value>"
+  },
+  "mm": {
+    "names": [
+      "mm"
+    ],
+    "url": "mm.html",
+    "summary": "enable/disable automatic hit markup",
+    "synopsis": "<mm> ... $variables ... </mm>"
+  },
+  "sb": {
+    "names": [
+      "sb"
+    ],
+    "url": "sb.html",
+    "summary": "enable/disable automatic search and replace",
+    "synopsis": "<sb> ... $variables ... </sb>"
+  },
+  "apicp": {
+    "names": [
+      "apicp"
+    ],
+    "url": "apicp.html",
+    "summary": "modify Metamorph query control parameters",
+    "synopsis": "<apicp $name $value [$value ...]>"
+  },
+  "apiinfo": {
+    "names": [
+      "apiinfo"
+    ],
+    "url": "apiinfo.html",
+    "summary": "get current Metamorph query control parameters",
+    "synopsis": "<apiinfo $setting>"
+  },
+  "sqlcp": {
+    "names": [
+      "sqlcp"
+    ],
+    "url": "sqlcp.html",
+    "summary": "modify low-level SQL control parameters",
+    "synopsis": "<sqlcp $name $value [...]>"
+  },
+  "pagelinks": {
+    "names": [
+      "pagelinks"
+    ],
+    "url": "pagelinks.html",
+    "summary": "paginate SQL results",
+    "synopsis": "<pagelinks [options]>"
+  },
+  "flush": {
+    "names": [
+      "flush"
+    ],
+    "url": "flush.html",
+    "summary": "flush output",
+    "synopsis": "<flush>"
+  },
+  "header": {
+    "names": [
+      "header"
+    ],
+    "url": "header.html",
+    "summary": "print HTTP header",
+    "synopsis": "<header NAME=$name [VALUE=$value] [options]>"
+  },
+  "rex": {
+    "names": [
+      "rex",
+      "split"
+    ],
+    "url": "rex_split.html",
+    "summary": "regular expression search",
+    "synopsis": "<rex $exprs $data[ /]>               <split $exprs $data[ /]>\n  or                                   or\n<rex [options] $exprs $data>         <split [options] $exprs $data>\n  ...                                  ...\n</rex>                               </split>"
+  },
+  "split": {
+    "names": [
+      "rex",
+      "split"
+    ],
+    "url": "rex_split.html",
+    "summary": "regular expression search",
+    "synopsis": "<rex $exprs $data[ /]>               <split $exprs $data[ /]>\n  or                                   or\n<rex [options] $exprs $data>         <split [options] $exprs $data>\n  ...                                  ...\n</rex>                               </split>"
+  },
+  "sandr": {
+    "names": [
+      "sandr"
+    ],
+    "url": "sandr.html",
+    "summary": "regular expression search and replace",
+    "synopsis": "<sandr $expr $replace $data>"
+  },
+  "strstr": {
+    "names": [
+      "strstr",
+      "strstri"
+    ],
+    "url": "strstr_strstri.html",
+    "summary": "find substring in string",
+    "synopsis": "<strstr $needle $haystack [$mode]>\n<strstri $needle $haystack [$mode]>"
+  },
+  "strstri": {
+    "names": [
+      "strstr",
+      "strstri"
+    ],
+    "url": "strstr_strstri.html",
+    "summary": "find substring in string",
+    "synopsis": "<strstr $needle $haystack [$mode]>\n<strstri $needle $haystack [$mode]>"
+  },
+  "substr": {
+    "names": [
+      "substr"
+    ],
+    "url": "substr.html",
+    "summary": "extract substring from string",
+    "synopsis": "<substr $str $offset $len [$mode]>"
+  },
+  "strcmp": {
+    "names": [
+      "strcmp",
+      "strcmpi"
+    ],
+    "url": "strcmp_strcmpi.html",
+    "summary": "compare strings",
+    "synopsis": "<strcmp $a $b [$mode]>\n<strcmpi $a $b [$mode]>"
+  },
+  "strcmpi": {
+    "names": [
+      "strcmp",
+      "strcmpi"
+    ],
+    "url": "strcmp_strcmpi.html",
+    "summary": "compare strings",
+    "synopsis": "<strcmp $a $b [$mode]>\n<strcmpi $a $b [$mode]>"
+  },
+  "strncmp": {
+    "names": [
+      "strncmp",
+      "strnicmp"
+    ],
+    "url": "strncmp_strnicmp.html",
+    "summary": "compare strings, fixed length",
+    "synopsis": "<strncmp $a $b $len [$mode]>\n<strnicmp $a $b $len [$mode]>"
+  },
+  "strnicmp": {
+    "names": [
+      "strncmp",
+      "strnicmp"
+    ],
+    "url": "strncmp_strnicmp.html",
+    "summary": "compare strings, fixed length",
+    "synopsis": "<strncmp $a $b $len [$mode]>\n<strnicmp $a $b $len [$mode]>"
+  },
+  "strlen": {
+    "names": [
+      "strlen"
+    ],
+    "url": "strlen.html",
+    "summary": "length of string",
+    "synopsis": "<strlen $str [$mode]>"
+  },
+  "strrev": {
+    "names": [
+      "strrev"
+    ],
+    "url": "strrev.html",
+    "summary": "reverse string",
+    "synopsis": "<strrev $str [$mode]>"
+  },
+  "upper": {
+    "names": [
+      "upper"
+    ],
+    "url": "upper.html",
+    "summary": "convert to upper case",
+    "synopsis": "<upper $str [$mode]>"
+  },
+  "lower": {
+    "names": [
+      "lower"
+    ],
+    "url": "lower.html",
+    "summary": "convert to lower case",
+    "synopsis": "<lower $str [$mode]>"
+  },
+  "strfold": {
+    "names": [
+      "strfold"
+    ],
+    "url": "strfold.html",
+    "summary": "fold string by case",
+    "synopsis": "<strfold $str [$mode]>"
+  },
+  "strfoldcmp": {
+    "names": [
+      "strfoldcmp"
+    ],
+    "url": "strfoldcmp.html",
+    "summary": "compare strings folded by case",
+    "synopsis": "<strfoldcmp $a $b [$mode]>"
+  },
+  "sort": {
+    "names": [
+      "sort"
+    ],
+    "url": "sort.html",
+    "summary": "sort variables",
+    "synopsis": "<sort [globalFlags] $var [orderFlags] [$var2 ...]>"
+  },
+  "uniq": {
+    "names": [
+      "uniq",
+      "uniqcount"
+    ],
+    "url": "uniq_uniqcount.html",
+    "summary": "produce unique list of values",
+    "synopsis": "<uniq [flags] $var [ICASE|NUM] [DESC|ASC] [$var2 ...]>\n<uniqcount>"
+  },
+  "uniqcount": {
+    "names": [
+      "uniq",
+      "uniqcount"
+    ],
+    "url": "uniq_uniqcount.html",
+    "summary": "produce unique list of values",
+    "synopsis": "<uniq [flags] $var [ICASE|NUM] [DESC|ASC] [$var2 ...]>\n<uniqcount>"
+  },
+  "count": {
+    "names": [
+      "count"
+    ],
+    "url": "count.html",
+    "summary": "return number of variable values",
+    "synopsis": "<count $var>"
+  },
+  "strtonum": {
+    "names": [
+      "strtonum"
+    ],
+    "url": "strtonum.html",
+    "summary": "convert string to number",
+    "synopsis": "<strtonum $str [$flag]>"
+  },
+  "rand": {
+    "names": [
+      "rand"
+    ],
+    "url": "rand.html",
+    "summary": "generate pseudo-random number",
+    "synopsis": "<rand $min $max>"
+  },
+  "randpick": {
+    "names": [
+      "randpick"
+    ],
+    "url": "randpick.html",
+    "summary": "return pseudo-random value of a variable",
+    "synopsis": "<randpick $var>"
+  },
+  "srand": {
+    "names": [
+      "srand"
+    ],
+    "url": "srand.html",
+    "summary": "seed the pseudo-random number generator",
+    "synopsis": "<srand $seed>"
+  },
+  "exit": {
+    "names": [
+      "exit"
+    ],
+    "url": "exit.html",
+    "summary": "exit program",
+    "synopsis": "<exit [$code]>"
+  },
+  "fetch": {
+    "names": [
+      "fetch"
+    ],
+    "url": "fetch.html",
+    "summary": "fetch URLs",
+    "synopsis": "<fetch [PARALLEL[=n]] [options] URL[S]=$urls [$loopvar ...] [/]>\n[  ...\n</fetch>]"
+  },
+  "submit": {
+    "names": [
+      "submit"
+    ],
+    "url": "submit.html",
+    "summary": "submit HTML form",
+    "synopsis": "<submit [options] URL=$theURL [var=value ...]>"
+  },
+  "urlinfo": {
+    "names": [
+      "urlinfo"
+    ],
+    "url": "urlinfo.html",
+    "summary": "get detailed page info",
+    "synopsis": "<urlinfo $name [$which]>"
+  },
+  "urltext": {
+    "names": [
+      "urltext",
+      "urllinks"
+    ],
+    "url": "urltext_urllinks.html",
+    "summary": "get formatted text, URL links",
+    "synopsis": "<urltext>\n<urllinks>"
+  },
+  "urllinks": {
+    "names": [
+      "urltext",
+      "urllinks"
+    ],
+    "url": "urltext_urllinks.html",
+    "summary": "get formatted text, URL links",
+    "synopsis": "<urltext>\n<urllinks>"
+  },
+  "urlcp": {
+    "names": [
+      "urlcp"
+    ],
+    "url": "urlcp.html",
+    "summary": "modify URL control parameters",
+    "synopsis": "<urlcp $setting [$arg ...]>"
+  },
+  "urlutil": {
+    "names": [
+      "urlutil"
+    ],
+    "url": "urlutil.html",
+    "summary": "URL/network utility",
+    "synopsis": "<urlutil $action [$arg ...]>"
+  },
+  "nslookup": {
+    "names": [
+      "nslookup"
+    ],
+    "url": "nslookup.html",
+    "summary": "domain name and IP address lookup",
+    "synopsis": "<nslookup [PARALLEL[=n]] [options] {HOSTS|ADDRS}=$hostOrIp\n          [$loopvar ...] [/]>\n[  ...\n</nslookup>]"
+  },
+  "nsinfo": {
+    "names": [
+      "nsinfo"
+    ],
+    "url": "nsinfo.html",
+    "summary": "get info from last name lookup",
+    "synopsis": "<nsinfo $name [$which]>"
+  },
+  "options": {
+    "names": [
+      "options"
+    ],
+    "url": "options.html",
+    "summary": "print options list",
+    "synopsis": "<options $values $selected $output\n         [$classes [$ids [$titles]]]>"
+  },
+  "radiobutton": {
+    "names": [
+      "radiobutton"
+    ],
+    "url": "radiobutton.html",
+    "summary": "print radio buttons list",
+    "synopsis": "<radiobutton $name $values $selected $output\n             [$classes [$ids [$titles]]]>"
+  },
+  "checkbox": {
+    "names": [
+      "checkbox"
+    ],
+    "url": "checkbox.html",
+    "summary": "print checkbox list",
+    "synopsis": "<checkbox $name $values $selected $output\n          [$classes [$ids [$titles]]]>"
+  },
+  "doctype": {
+    "names": [
+      "doctype"
+    ],
+    "url": "doctype.html",
+    "summary": "print DOCTYPE declaration",
+    "synopsis": "<doctype $langver [$type]>"
+  },
+  "cal": {
+    "names": [
+      "cal"
+    ],
+    "url": "cal.html",
+    "summary": "print a calendar with links",
+    "synopsis": "<cal [options] [$dates [$events [$var ...]]][ /]> [</cal>]"
+  },
+  "calrule": {
+    "names": [
+      "calrule"
+    ],
+    "url": "calrule.html",
+    "summary": "translate a calendar rule and iterate dates",
+    "synopsis": "<calrule [options] [RULE=]$rule[ /]> [</calrule>]"
+  },
+  "calendar": {
+    "names": [
+      "calendar"
+    ],
+    "url": "calendar.html",
+    "summary": "print calendar form",
+    "synopsis": "<calendar $yr $month $day $hour $min [\"am\"|\"pm\" [$prefix [flags ...]]]>\n<calendar $date [$prefix [flags ...]]>"
+  },
+  "caldate": {
+    "names": [
+      "caldate"
+    ],
+    "url": "caldate.html",
+    "summary": "create date list from calendar submission",
+    "synopsis": "<caldate $varprefix>"
+  },
+  "clist": {
+    "names": [
+      "clist"
+    ],
+    "url": "clist.html",
+    "summary": "create comma-separated list",
+    "synopsis": "<clist $values>"
+  },
+  "slist": {
+    "names": [
+      "slist"
+    ],
+    "url": "slist.html",
+    "summary": "create Metamorph set list",
+    "synopsis": "<slist $intersect $values>"
+  },
+  "wordlist": {
+    "names": [
+      "wordlist",
+      "wordcount",
+      "wordoccurrencecounts"
+    ],
+    "url": "wordlist_wordcount.html",
+    "summary": "get words and frequencies from index",
+    "synopsis": "<wordlist $table [$field [$wordsOrWildcards [$options]]]>\n<wordcount>\n<wordoccurrencecounts>"
+  },
+  "wordcount": {
+    "names": [
+      "wordlist",
+      "wordcount",
+      "wordoccurrencecounts"
+    ],
+    "url": "wordlist_wordcount.html",
+    "summary": "get words and frequencies from index",
+    "synopsis": "<wordlist $table [$field [$wordsOrWildcards [$options]]]>\n<wordcount>\n<wordoccurrencecounts>"
+  },
+  "wordoccurrencecounts": {
+    "names": [
+      "wordlist",
+      "wordcount",
+      "wordoccurrencecounts"
+    ],
+    "url": "wordlist_wordcount.html",
+    "summary": "get words and frequencies from index",
+    "synopsis": "<wordlist $table [$field [$wordsOrWildcards [$options]]]>\n<wordcount>\n<wordoccurrencecounts>"
+  },
+  "createdb": {
+    "names": [
+      "createdb"
+    ],
+    "url": "createdb.html",
+    "summary": "create database",
+    "synopsis": "<createdb $db [$syspass [$publicpass [$methods]]]>"
+  },
+  "adminsql": {
+    "names": [
+      "adminsql"
+    ],
+    "url": "adminsql.html",
+    "summary": "execute arbitrary SQL",
+    "synopsis": "<adminsql [options ...] [statement ...]>"
+  },
+  "loguser": {
+    "names": [
+      "loguser"
+    ],
+    "url": "loguser.html",
+    "summary": "log user accesses",
+    "synopsis": "<loguser $REMOTE_ADDR [$limit]>"
+  },
+  "userstats": {
+    "names": [
+      "userstats"
+    ],
+    "url": "userstats.html",
+    "summary": "get user statistics",
+    "synopsis": "<userstats $REMOTE_ADDR [license|user]>"
+  },
+  "resetstats": {
+    "names": [
+      "resetstats"
+    ],
+    "url": "resetstats.html",
+    "summary": "reset user statistics",
+    "synopsis": "<resetstats $REMOTE_ADDR>"
+  },
+  "abstract": {
+    "names": [
+      "abstract"
+    ],
+    "url": "abstract.html",
+    "summary": "generate an abstract from text",
+    "synopsis": "<abstract $text [$maxsz [$style [$query]]]>"
+  },
+  "rmcommon": {
+    "names": [
+      "rmcommon"
+    ],
+    "url": "rmcommon.html",
+    "summary": "remove common prefix/suffix from text",
+    "synopsis": "<rmcommon $data $template [$maxrm]>"
+  },
+  "pwencrypt": {
+    "names": [
+      "pwencrypt"
+    ],
+    "url": "pwencrypt.html",
+    "summary": "encrypt/hash password Unix-style",
+    "synopsis": "<pwencrypt $pass $salt>"
+  },
+  "encrypt": {
+    "names": [
+      "encrypt"
+    ],
+    "url": "encrypt.html",
+    "summary": "encrypt data",
+    "synopsis": "<encrypt $data $key>"
+  },
+  "decrypt": {
+    "names": [
+      "decrypt"
+    ],
+    "url": "decrypt.html",
+    "summary": "decrypt data",
+    "synopsis": "<decrypt $crypt $key>"
+  },
+  "readvars": {
+    "names": [
+      "readvars"
+    ],
+    "url": "readvars.html",
+    "summary": "read URL-encoded variables",
+    "synopsis": "<readvars $srcvarnames [$destvarnames] $urldata>"
+  },
+  "varinfo": {
+    "names": [
+      "varinfo"
+    ],
+    "url": "varinfo.html",
+    "summary": "get miscellaneous variable information",
+    "synopsis": "<varinfo $action [flags ...] [$arg]>"
+  },
+  "getvar": {
+    "names": [
+      "getvar"
+    ],
+    "url": "getvar.html",
+    "summary": "get variable values",
+    "synopsis": "<getvar [NOMSG] $var>"
+  },
+  "setvar": {
+    "names": [
+      "setvar"
+    ],
+    "url": "setvar.html",
+    "summary": "set a named variable",
+    "synopsis": "<setvar [flags] $var $values>"
+  },
+  "push": {
+    "names": [
+      "push"
+    ],
+    "url": "push.html",
+    "summary": "push values into a variable",
+    "synopsis": "<push $&var $values [$index]>"
+  },
+  "pop": {
+    "names": [
+      "pop"
+    ],
+    "url": "pop.html",
+    "summary": "pop value off a variable",
+    "synopsis": "<pop $&var [$index]>"
+  },
+  "slice": {
+    "names": [
+      "slice"
+    ],
+    "url": "slice.html",
+    "summary": "get sequence of values from a variable",
+    "synopsis": "<slice $var [$begin [$end [$step]]]>"
+  },
+  "vxcp": {
+    "names": [
+      "vxcp"
+    ],
+    "url": "vxcp.html",
+    "summary": "set Vortex control parameters",
+    "synopsis": "<vxcp setting [args ...]>"
+  },
+  "vxinfo": {
+    "names": [
+      "vxinfo"
+    ],
+    "url": "vxinfo.html",
+    "summary": "get miscellaneous Vortex information",
+    "synopsis": "<vxinfo $what [$arg ...]>"
+  },
+  "hash": {
+    "names": [
+      "hash"
+    ],
+    "url": "hash.html",
+    "summary": "produce a hash or checksum for data",
+    "synopsis": "<hash [options ...] [DATA=]$buf[ /]>"
+  },
+  "geo2code": {
+    "names": [
+      "geo2code"
+    ],
+    "url": "geo2code.html",
+    "summary": "latitude/longitude encoding for regional search",
+    "synopsis": "<geo2code $lat $lon [$radius]>"
+  },
+  "code2geo": {
+    "names": [
+      "code2geo"
+    ],
+    "url": "code2geo.html",
+    "summary": "decode latitude/longitude encoding",
+    "synopsis": "<code2geo $num>"
+  },
+  "pdfxml": {
+    "names": [
+      "pdfxml"
+    ],
+    "url": "pdfxml.html",
+    "summary": "convert Metamorph hit to PDF markup information",
+    "synopsis": "<pdfxml $query $Body [options ...]>"
+  },
+  "xtree": {
+    "names": [
+      "xtree"
+    ],
+    "url": "xtree.html",
+    "summary": "maintain sorted list of values",
+    "synopsis": "<xtree [XTREE=$treename] [options] $command [$values] [$treename][ /]>\n[  ...\n</xtree>]"
+  },
+  "profiler": {
+    "names": [
+      "profiler"
+    ],
+    "url": "profiler.html",
+    "summary": "assist in searching query profiles",
+    "synopsis": "<profiler INIT $table [$profile [$field [$db]]]>\n<profiler GET $msg [$profile]>"
+  },
+  "read": {
+    "names": [
+      "read"
+    ],
+    "url": "read.html",
+    "summary": "read files",
+    "synopsis": "<read $files [$offset [$length]]>"
+  },
+  "send": {
+    "names": [
+      "send"
+    ],
+    "url": "send.html",
+    "summary": "print raw data",
+    "synopsis": "<send $values>"
+  },
+  "spew": {
+    "names": [
+      "spew"
+    ],
+    "url": "spew.html",
+    "summary": "print files",
+    "synopsis": "<spew $files [$offset [$length]]>"
+  },
+  "sleep": {
+    "names": [
+      "sleep"
+    ],
+    "url": "sleep.html",
+    "summary": "sleep for a while",
+    "synopsis": "<sleep $seconds [wake]>"
+  },
+  "sysinfo": {
+    "names": [
+      "sysinfo"
+    ],
+    "url": "sysinfo.html",
+    "summary": "get system-specific information",
+    "synopsis": "<sysinfo $what [$arg ...]>"
+  },
+  "syscp": {
+    "names": [
+      "syscp"
+    ],
+    "url": "syscp.html",
+    "summary": "set system-specific information",
+    "synopsis": "<syscp $what [$arg ...]>"
+  },
+  "sysutil": {
+    "names": [
+      "sysutil"
+    ],
+    "url": "sysutil.html",
+    "summary": "file and system utilities",
+    "synopsis": "<sysutil $action [option ...] $arg [...]>"
+  },
+  "stat": {
+    "names": [
+      "stat"
+    ],
+    "url": "stat.html",
+    "summary": "obtain file size and attributes",
+    "synopsis": "<stat [options] $path[ /]> [</stat>]"
+  },
+  "watchpath": {
+    "names": [
+      "watchpath"
+    ],
+    "url": "watchpath.html",
+    "summary": "watch a file or directory for changes",
+    "synopsis": "<watchpath path=$path [changes=$changes]\n           [subtree] [symlink] [linkedonly] [dironly]\n           callback=$callback [userdata=$userdata]>"
+  },
+  "getpid": {
+    "names": [
+      "getpid"
+    ],
+    "url": "getpid.html",
+    "summary": "get process id",
+    "synopsis": "<getpid>"
+  },
+  "procexists": {
+    "names": [
+      "procexists"
+    ],
+    "url": "procexists.html",
+    "summary": "see if process exists",
+    "synopsis": "<procexists $pid>"
+  },
+  "kill": {
+    "names": [
+      "kill"
+    ],
+    "url": "kill.html",
+    "summary": "terminate or send a signal to a process",
+    "synopsis": "<kill $pid [$sig]>"
+  },
+  "loadavg": {
+    "names": [
+      "loadavg"
+    ],
+    "url": "loadavg.html",
+    "summary": "return system load averages",
+    "synopsis": "<loadavg>"
+  },
+  "a": {
+    "names": [
+      "a"
+    ],
+    "url": "a.html",
+    "summary": "function definition",
+    "synopsis": "<A NAME=name [PUBLIC | EXPORT | PRIVATE] [param[=value|$var] ...]>\n  ... statements ...\n</A>"
+  },
+  "if": {
+    "names": [
+      "if",
+      "else",
+      "elseif"
+    ],
+    "url": "if_else_elseif.html",
+    "summary": "conditional execution",
+    "synopsis": "<IF condition1>\n  ... statements if condition1 true ...\n[<ELSE[ ]IF condition2>\n  ... statements if condition2 true ...]\n[<ELSE>\n  ... statements if both are false ...]\n</IF>"
+  },
+  "else": {
+    "names": [
+      "if",
+      "else",
+      "elseif"
+    ],
+    "url": "if_else_elseif.html",
+    "summary": "conditional execution",
+    "synopsis": "<IF condition1>\n  ... statements if condition1 true ...\n[<ELSE[ ]IF condition2>\n  ... statements if condition2 true ...]\n[<ELSE>\n  ... statements if both are false ...]\n</IF>"
+  },
+  "elseif": {
+    "names": [
+      "if",
+      "else",
+      "elseif"
+    ],
+    "url": "if_else_elseif.html",
+    "summary": "conditional execution",
+    "synopsis": "<IF condition1>\n  ... statements if condition1 true ...\n[<ELSE[ ]IF condition2>\n  ... statements if condition2 true ...]\n[<ELSE>\n  ... statements if both are false ...]\n</IF>"
+  },
+  "switch": {
+    "names": [
+      "switch"
+    ],
+    "url": "switch.html",
+    "summary": "multi-choice branch",
+    "synopsis": "<SWITCH switchExpression>\n  <CASE value1[ /]>\n    ... statements if switchExpression = value1 ...\n  [</CASE>]\n  <CASE op value2[ /]>\n    ... statements if switchExpression op value2 is true ...\n  [</CASE>]\n  ...\n  <DEFAULT[ /]>\n    ... statements if no <CASE> matches ...\n  [</DEFAULT>]\n</SWITCH>"
+  },
+  "local": {
+    "names": [
+      "local"
+    ],
+    "url": "local.html",
+    "summary": "declare local variables",
+    "synopsis": "<LOCAL var[=value|$initValue] ...]>\n  ...\n[</LOCAL>]"
+  },
+  "loop": {
+    "names": [
+      "loop"
+    ],
+    "url": "loop.html",
+    "summary": "iterate through variables",
+    "synopsis": "<LOOP [SKIP=s] [MAX=m] [REV] $var1 ...>\n  ... statements ...\n</LOOP>"
+  },
+  "sql": {
+    "names": [
+      "sql"
+    ],
+    "url": "sql.html",
+    "summary": "execute SQL statement",
+    "synopsis": "<SQL [options] \"SQL command\" [\"SQL fragment\" ...][ /]>\n[ ... Vortex statements ...\n</SQL>]"
+  },
+  "db": {
+    "names": [
+      "db"
+    ],
+    "url": "db.html",
+    "summary": "set database path",
+    "synopsis": "<DB = \"path\">"
+  },
+  "user": {
+    "names": [
+      "user",
+      "pass"
+    ],
+    "url": "user_pass.html",
+    "summary": "set SQL user and password",
+    "synopsis": "<USER = user>\n<PASS = pass>"
+  },
+  "pass": {
+    "names": [
+      "user",
+      "pass"
+    ],
+    "url": "user_pass.html",
+    "summary": "set SQL user and password",
+    "synopsis": "<USER = user>\n<PASS = pass>"
+  },
+  "while": {
+    "names": [
+      "while"
+    ],
+    "url": "while.html",
+    "summary": "conditional loop",
+    "synopsis": "<WHILE condition>\n  ... statements ...\n</WHILE>"
+  },
+  "readln": {
+    "names": [
+      "readln"
+    ],
+    "url": "readln.html",
+    "summary": "read file a line at a time",
+    "synopsis": "<READLN [options] $file[ /]>\n  ... statements ...\n[</READLN>]"
+  },
+  "write": {
+    "names": [
+      "write"
+    ],
+    "url": "write.html",
+    "summary": "write to file",
+    "synopsis": "<WRITE [APPEND] [OUTPUT] [SKIPONFAIL] [FLAGS=$flags] $file>\n  ... output to file ...\n</WRITE>"
+  },
+  "exec": {
+    "names": [
+      "exec"
+    ],
+    "url": "exec.html",
+    "summary": "execute program",
+    "synopsis": "<EXEC [options] program [arg ...][ /]>\n  ... input to program ...\n[</EXEC>]"
+  },
+  "capture": {
+    "names": [
+      "capture"
+    ],
+    "url": "capture.html",
+    "summary": "capture output",
+    "synopsis": "<CAPTURE [flags]>\n  ... Vortex code ...\n</CAPTURE>"
+  },
+  "timport": {
+    "names": [
+      "timport"
+    ],
+    "url": "timport.html",
+    "summary": "general purpose data import",
+    "synopsis": "<TIMPORT [options] $schema [FROMFILE] $data|$file[ /]>\n[  ... statements ...\n</TIMPORT>]"
+  },
+  "break": {
+    "names": [
+      "break"
+    ],
+    "url": "break.html",
+    "summary": "exit loop",
+    "synopsis": "<BREAK>"
+  },
+  "continue": {
+    "names": [
+      "continue"
+    ],
+    "url": "continue.html",
+    "summary": "continue loop",
+    "synopsis": "<CONTINUE>"
+  },
+  "return": {
+    "names": [
+      "return"
+    ],
+    "url": "return.html",
+    "summary": "return from current function",
+    "synopsis": "<RETURN [$value]>"
+  },
+  "verb": {
+    "names": [
+      "verb"
+    ],
+    "url": "verb.html",
+    "summary": "raw output",
+    "synopsis": "<VERB [NOESC]>\n  ... raw text to be output ...\n</VERB>"
+  },
+  "timeout": {
+    "names": [
+      "timeout"
+    ],
+    "url": "timeout.html",
+    "summary": "set timeout",
+    "synopsis": "<TIMEOUT = n[ /]>\n  ... text/HTML to print on timeout ...\n[</TIMEOUT>]"
+  },
+  "export": {
+    "names": [
+      "export"
+    ],
+    "url": "export.html",
+    "summary": "retain variables across invocations",
+    "synopsis": "<EXPORT $var [$var ...] [flags]>"
+  },
+  "putmsg": {
+    "names": [
+      "putmsg"
+    ],
+    "url": "putmsg.html",
+    "summary": "set error message actions",
+    "synopsis": "<PUTMSG call|log|print|all|override on|off|exceptiononly>"
+  },
+  "entryfunc": {
+    "names": [
+      "entryfunc",
+      "exitfunc"
+    ],
+    "url": "entryfunc_exitfunc.html",
+    "summary": "set entry/exit functions",
+    "synopsis": "<ENTRYFUNC = function>\n<EXITFUNC = function>"
+  },
+  "exitfunc": {
+    "names": [
+      "entryfunc",
+      "exitfunc"
+    ],
+    "url": "entryfunc_exitfunc.html",
+    "summary": "set entry/exit functions",
+    "synopsis": "<ENTRYFUNC = function>\n<EXITFUNC = function>"
+  },
+  "uses": {
+    "names": [
+      "uses"
+    ],
+    "url": "uses.html",
+    "summary": "use a module",
+    "synopsis": "<USES [DATE=date] module[=file] [module[=file]]>"
+  },
+  "schedule": {
+    "names": [
+      "schedule"
+    ],
+    "url": "schedule.html",
+    "summary": "schedule periodic execution of script",
+    "synopsis": "<SCHEDULE [options] WHEN=schedule [--] [var=val] [...]>"
+  },
+  "cookies": {
+    "names": [
+      "cookies"
+    ],
+    "url": "cookies-2.html",
+    "summary": "control cookie import",
+    "synopsis": "<COOKIES urldecode|asis>"
+  },
+  "stack": {
+    "names": [
+      "stack"
+    ],
+    "url": "stack.html",
+    "summary": "set stack limit",
+    "synopsis": "<STACK=n>"
+  },
+  "tracesql": {
+    "names": [
+      "tracesql"
+    ],
+    "url": "tracesql.html",
+    "summary": "trace SQL calls",
+    "synopsis": "<TRACESQL on|off|N>"
+  },
+  "sqlcache": {
+    "names": [
+      "sqlcache"
+    ],
+    "url": "sqlcache.html",
+    "summary": "control SQL handle caching",
+    "synopsis": "<SQLCACHE = n>"
+  },
+  "trap": {
+    "names": [
+      "trap"
+    ],
+    "url": "trap.html",
+    "summary": "trap signals",
+    "synopsis": "<TRAP [CONNRESET=on|off|N] [[SIGNALS=]on|off|N]>"
+  },
+  "addtrailingslash": {
+    "names": [
+      "addtrailingslash"
+    ],
+    "url": "addtrailingslash.html",
+    "summary": "add trailing slash to \"directory\" URLs",
+    "synopsis": "<addtrailingslash = yes|no>"
+  },
+  "pragma": {
+    "names": [
+      "pragma"
+    ],
+    "url": "pragma.html",
+    "summary": "inline compiler directive",
+    "synopsis": "<!-- pragma [push|pop] name [value] -->\n<!-- pragma if expr -->\n<!-- pragma elif expr -->\n<!-- pragma else -->\n<!-- pragma endif -->"
+  }
+}

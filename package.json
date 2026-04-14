@@ -1,6 +1,6 @@
 {
   "name": "vortex-language",
-  "displayName": "Vortex Language Support",
+  "displayName": "Vortex: Texis Web Script",
   "description": "Syntax highlighting, snippets, and tooling for Thunderstone Vortex (.vs) and ifdef-preprocessed (.vsrc) source files.",
   "version": "1.0.0",
   "publisher": "ThunderstoneSoftware",
@@ -27,6 +27,7 @@
   "keywords": [
     "vortex",
     "texis",
+    "texis web script",
     "webinator",
     "thunderstone"
   ],

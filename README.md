@@ -1,4 +1,4 @@
-# Vortex Language Support
+# Vortex: Texis Web Script
 
 VS Code extension for [Thunderstone Vortex](https://docs.thunderstone.com/site/vortexman/) web-script files (`.vs`).
 

@@ -1,11 +1,11 @@
 // Vortex Language Support — extension entry point.
 //
 // Provides:
-//   - Workspace index of <a name=...> function definitions across .vs/.src files.
+//   - Workspace index of <a name=...> function definitions across .vs/.vsrc files.
 //   - Go-to-definition for user functions and #include "..." paths.
 //   - Hover docs showing function signatures (parameters with default values).
 //   - Document symbols (Outline view) for the current file.
-//   - Command: "Vortex: Preprocess .src with ifdef".
+//   - Command: "Vortex: Preprocess .vsrc with ifdef".
 
 const vscode = require('vscode');
 const cp = require('child_process');
@@ -14,6 +14,7 @@ const fsp = require('fs').promises;
 const path = require('path');
 
 let output;
+let srcEnabled = false;
 function log(msg) {
   if (output) output.appendLine(`[${new Date().toISOString()}] ${msg}`);
 }
@@ -57,7 +58,7 @@ async function preprocessSrc() {
   }
   const doc = editor.document;
   if (doc.languageId !== 'vortex-src') {
-    vscode.window.showWarningMessage('Vortex: active file is not a .src file.');
+    vscode.window.showWarningMessage('Vortex: active file is not a .vsrc file.');
     return;
   }
 
@@ -121,7 +122,8 @@ function openDocs() {
 
 const FUNC_RE = /<a\b([^>]*)>/gi;
 const RESERVED_MODIFIERS = new Set(['public', 'private', 'export']);
-const FILE_GLOB = '**/*.{vs,src}';
+const FILE_GLOB_VS = '**/*.vs';
+const FILE_GLOB_SRC = '**/*.{vs,vsrc}';
 const DEFAULT_EXCLUDE =
   '{**/node_modules/**,**/.git/**,**/build/**,**/build-*/**,**/dist/**,**/usr/local/**,**/out/**}';
 const MAX_FILE_BYTES = 1024 * 1024;   // skip files larger than 1 MB
@@ -375,7 +377,7 @@ async function indexFile(uri) {
 }
 
 function indexDocument(doc) {
-  if (doc.languageId !== 'vortex' && doc.languageId !== 'vortex-src') return;
+  if (doc.languageId !== 'vortex' && !(srcEnabled && doc.languageId === 'vortex-src')) return;
   if (doc.uri.scheme !== 'file') return;
   removeFileFromIndex(doc.uri.toString());
   addDefsToIndex(doc.uri, parseFile(doc.uri, doc.getText()));
@@ -392,7 +394,7 @@ function listFilesViaGit(folderPath) {
       'git',
       ['-C', folderPath, 'ls-files', '-z',
        '--cached', '--others', '--exclude-standard',
-       '--', '*.vs', '*.src'],
+       '--', '*.vs', ...(srcEnabled ? ['*.vsrc'] : [])],
       { maxBuffer: 16 * 1024 * 1024 },
       (err, stdout) => {
         if (err) { resolve(null); return; }
@@ -458,7 +460,7 @@ async function listCandidateFiles() {
     let uris = null;
     if (useGit) uris = await listFilesViaGit(folder.uri.fsPath);
     if (!uris) {
-      const pattern = new vscode.RelativePattern(folder, FILE_GLOB);
+      const pattern = new vscode.RelativePattern(folder, srcEnabled ? FILE_GLOB_SRC : FILE_GLOB_VS);
       uris = await vscode.workspace.findFiles(pattern, exclude);
     }
     const isExcluded = loadVortexIgnore(folder.uri.fsPath);
@@ -518,7 +520,7 @@ async function buildInitialIndex() {
 }
 
 /**
- * Recursively walk a directory collecting .vs/.src files. Used for lazy
+ * Recursively walk a directory collecting .vs/.vsrc files. Used for lazy
  * loading of non-default scopes (e.g. generated build or dist trees) where
  * git ls-files won't help because the directory is gitignored.
  */
@@ -531,7 +533,7 @@ async function walkDirForVortexFiles(rootDir, out) {
     const full = path.join(rootDir, e.name);
     if (e.isDirectory()) {
       await walkDirForVortexFiles(full, out);
-    } else if (e.isFile() && (e.name.endsWith('.vs') || e.name.endsWith('.src'))) {
+    } else if (e.isFile() && (e.name.endsWith('.vs') || (srcEnabled && e.name.endsWith('.vsrc')))) {
       out.push(vscode.Uri.file(full));
     }
   }
@@ -620,7 +622,7 @@ function getTagNameAt(document, position) {
 
 function getIncludePathAt(document, position) {
   const line = document.lineAt(position.line).text;
-  const m = /^(\s*#include\s+)(["<])([^">]+)([">])/.exec(line);
+  const m = /^(\s*#\s*include\s+)(["<])([^">]+)([">])/.exec(line);
   if (!m) return null;
   const pathStart = m[1].length + 1;
   const pathEnd = pathStart + m[3].length;
@@ -877,10 +879,35 @@ function activate(context) {
   log(`activating vortex-language ${context.extension.packageJSON.version}`);
   loadBuiltinDocs(context.extensionPath);
 
+  srcEnabled = vscode.workspace.getConfiguration('vortex').get('enableVortexSrc', false);
+  log(`vortex-src enabled: ${srcEnabled}`);
+
   const selector = [
     { language: 'vortex', scheme: 'file' },
-    { language: 'vortex-src', scheme: 'file' }
+    ...(srcEnabled ? [{ language: 'vortex-src', scheme: 'file' }] : [])
   ];
+
+  // When vortex-src is enabled, claim .vsrc files as vortex-src (since we
+  // don't declare file extensions statically in package.json).
+  if (srcEnabled) {
+    const claimSrcDoc = doc => {
+      if (doc.uri.scheme !== 'file') return;
+      if (doc.languageId === 'vortex-src') return;
+      const ext = path.extname(doc.uri.fsPath);
+      if (ext === '.vsrc') {
+        vscode.languages.setTextDocumentLanguage(doc, 'vortex-src');
+      }
+    };
+    // Claim files opened from now on.
+    context.subscriptions.push(
+      vscode.workspace.onDidOpenTextDocument(claimSrcDoc)
+    );
+    // Claim files that were already open before the extension activated
+    // (e.g. tabs restored from a previous session).
+    for (const doc of vscode.workspace.textDocuments) {
+      claimSrcDoc(doc);
+    }
+  }
 
   context.subscriptions.push(
     vscode.commands.registerCommand('vortex.preprocessSrc', preprocessSrc),

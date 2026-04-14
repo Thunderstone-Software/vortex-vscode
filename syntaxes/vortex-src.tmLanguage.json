@@ -14,7 +14,7 @@
       "name": "comment.line.double-number-sign.ifdef"
     },
     "ifdefDirective": {
-      "begin": "^\\s*(#)(ifdef|ifndef|if|else|elif|elseif|endif|define|undef|include|error|warning|for|endfor|htmlesc|endhtmlesc|stackdump|line|pragma)\\b",
+      "begin": "^\\s*(#)\\s*(ifdef|ifndef|if|else|elif|elseif|endif|define|undef|include|error|warning|for|endfor|htmlesc|endhtmlesc|stackdump|line|pragma)\\b",
       "beginCaptures": {
         "1": { "name": "punctuation.definition.directive.ifdef" },
         "2": { "name": "keyword.control.directive.ifdef" }

@@ -1,65 +1,47 @@
 # Vortex Language Support
 
-VS Code support for [Thunderstone](https://docs.thunderstone.com/) Vortex web-script files
-(`.vs`) and the `ifdef`-preprocessed source files (`.src`) used by Webinator and related
-projects.
+VS Code extension for [Thunderstone Vortex](https://docs.thunderstone.com/site/vortexman/) web-script files (`.vs`).
+
+Vortex is the server-side scripting language behind Thunderstone's Webinator, Texis, and related products.
 
 ## Features
 
-- **Syntax highlighting** for Vortex tags, built-in functions, `$variables` (with `:modifier`
-  support), HTML markup, single/double quoted strings, and `<!-- comments -->`.
-- **`.src` highlighting** layered on top of Vortex: `#ifdef` / `#ifndef` / `#if` / `#else` /
-  `#endif` / `#define` / `#include` / `#for` / `#endfor` / `#htmlesc`, `## line comments`,
-  and `(#)MACRO(#)` references.
-- **Snippets** for common scaffolding (`vxscript`, `vxa`, `vxif`, `vxloop`, `vxsql`,
-  `vxexport`, `ifdef`, `ifndef`, `include`).
-- **Bracket matching, comment toggling, and folding** on `#if`/`#endif` regions.
-- **Command: `Vortex: Preprocess .src with ifdef`** — runs the repo's `ifdef` awk script
-  on the active `.src` file and opens the expanded output in a side editor.
-- **Command: `Vortex: Open Online Documentation`**.
+- **Syntax highlighting** — Vortex tags, built-in functions, `$variables` (including `:modifiers`), HTML markup, strings, and `<!-- comments -->`.
+- **Go-to-definition** — Jump to any `<a name=funcName>` declaration across the workspace. Also resolves `#include` paths.
+- **Hover documentation** — See function signatures, parameters with defaults, and the file/line where each function is defined. Built-in functions show a synopsis from the official docs.
+- **Outline & workspace symbols** — Browse functions in the current file or search across the entire workspace.
+- **Find all references** — Locate every call site for a function.
+- **Semantic highlighting** — User-defined function calls get the theme's `function` color; built-ins keep keyword coloring.
+- **Snippets** — Quick scaffolding for common patterns: `vxscript`, `vxa`, `vxif`, `vxloop`, `vxsql`, `vxexport`, and more.
+
+## Vortex-src (ifdef preprocessing)
+
+Thunderstone projects often use an `ifdef` preprocessor on `.vsrc` source files before deployment. This mode adds highlighting for `#ifdef`, `#ifndef`, `#if`, `#else`, `#endif`, `#define`, `#include`, `#for`/`#endfor`, `#htmlesc`, `## line comments`, and `(#)MACRO(#)` references.
+
+Since most users won't have the ifdef preprocessor, this mode is **disabled by default**. To enable it:
+
+1. Open **Settings** and search for `vortex.enableVortexSrc`.
+2. Check the box to enable.
+3. Reload the window.
+
+Once enabled, `.vsrc` files are recognized as Vortex-src, and the **Vortex: Preprocess .vsrc with ifdef** command becomes available in the command palette and editor context menu.
 
 ## Settings
 
-| Setting | Description |
-|---|---|
-| `vortex.ifdefPath` | Path to the `ifdef` script. If empty, the extension walks up from the workspace root looking for a file named `ifdef`. |
-| `vortex.ifdefDefines` | Comma-separated `DEFINED=` macros (e.g. `APPLIANCE,FOO=bar`). |
-| `vortex.ifdefExtraArgs` | Extra `-v key=value` arguments forwarded to awk. |
+| Setting | Default | Description |
+| --- | --- | --- |
+| `vortex.enableVortexSrc` | `false` | Enable the Vortex-src (ifdef) language mode for `.vsrc` files. |
+| `vortex.ifdefPath` | `""` | Path to the `ifdef` script. If empty, the extension searches up from the workspace root. |
+| `vortex.ifdefDefines` | `""` | Comma-separated `DEFINED=` macros (e.g. `APPLIANCE,FOO=bar`). |
+| `vortex.ifdefExtraArgs` | `[]` | Extra `-v key=value` arguments forwarded to awk. |
+| `vortex.useGitignore` | `true` | Use `git ls-files` for file discovery, honoring `.gitignore`. |
+| `vortex.indexExclude` | `{**/node_modules/**,...}` | Fallback exclude glob for non-git workspaces. |
 
-## Installing locally
+## Links
 
-From this directory:
-
-```sh
-npm install -g @vscode/vsce      # one time
-vsce package                     # produces vortex-language-0.1.0.vsix
-code --install-extension vortex-language-0.1.0.vsix
-```
-
-Or, for live development, copy/symlink this directory into `~/.vscode/extensions/`
-and reload the VS Code window.
-
-## Navigation
-
-- **Go-to-definition** (F12) on a `<funcName>` call jumps to its `<a name=funcName>`
-  declaration. Works across files; if the function is defined in multiple files,
-  VS Code shows the picker with the current file listed first.
-- **Go-to-definition** on the path inside `#include "foo.src"` opens the included file.
-- **Hover** on a `<funcName>` call shows its signature, including parameter names,
-  default values, and modifiers (`public`/`private`/`export`), plus the file and
-  line where it's defined.
-- **Outline view** (`Cmd-Shift-O` / `Ctrl-Shift-O`) lists every `<a name=...>`
-  function in the current file with its parameter list.
-- **Workspace symbols** (`Cmd-T` / `Ctrl-T`) finds any function across the workspace.
-- **Find all references** (`Shift-F12`) on a `<funcName>` lists every call site
-  in the workspace.
-
-## Roadmap
-
-- Diagnostics from `texis -syntax`.
-- Setting to disable `.src` / ifdef support (most users won't have ifdef).
-- Marketplace publication.
+- [Vortex documentation](https://docs.thunderstone.com/site/vortexman/)
+- [Issue tracker](https://github.com/Thunderstone-Software/vortex-vscode/issues)
 
 ## License
 
-Copyright Thunderstone Software LLC.
+MIT — Copyright Thunderstone Software LLC.

@@ -1,5 +1,10 @@
 .vscode/**
 .gitignore
+.vscodeignore
 **/*.map
 node_modules/**
 *.vsix
+CLAUDE.md
+TODO.md
+Makefile
+scripts/**

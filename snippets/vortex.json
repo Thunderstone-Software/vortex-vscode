@@ -77,6 +77,6 @@
   },
   "include": {
     "prefix": "include",
-    "body": ["#include \"${1:file.src}\""]
+    "body": ["#include \"${1:file.vsrc}\""]
   }
 }

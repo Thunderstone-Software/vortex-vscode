@@ -1,13 +1,14 @@
 {
   "name": "vortex-language",
   "displayName": "Vortex Language Support",
-  "description": "Syntax highlighting, snippets, and tooling for Thunderstone Vortex (.vs) and ifdef-preprocessed (.src) source files.",
-  "version": "0.4.2",
-  "publisher": "thunderstone",
+  "description": "Syntax highlighting, snippets, and tooling for Thunderstone Vortex (.vs) and ifdef-preprocessed (.vsrc) source files.",
+  "version": "1.0.0",
+  "publisher": "ThunderstoneSoftware",
   "author": {
     "name": "Thunderstone Software LLC"
   },
   "license": "MIT",
+  "icon": "icon.png",
   "repository": {
     "type": "git",
     "url": "https://github.com/Thunderstone-Software/vortex-vscode"
@@ -30,7 +31,7 @@
     "thunderstone"
   ],
   "main": "./extension.js",
-  "activationEvents": [],
+  "activationEvents": ["onStartupFinished"],
   "contributes": {
     "languages": [
       {
@@ -42,7 +43,7 @@
       {
         "id": "vortex-src",
         "aliases": ["Vortex (ifdef)", "vortex-src"],
-        "extensions": [".src"],
+        "extensions": [],
         "configuration": "./language-configuration.json"
       }
     ],
@@ -71,7 +72,7 @@
     "commands": [
       {
         "command": "vortex.preprocessSrc",
-        "title": "Vortex: Preprocess .src with ifdef",
+        "title": "Vortex: Preprocess .vsrc with ifdef",
         "category": "Vortex"
       },
       {
@@ -118,6 +119,11 @@
           "type": "boolean",
           "default": true,
           "description": "Index only files known to git (`git ls-files --cached --others --exclude-standard`). This honors .gitignore and naturally skips generated build/dist trees. Falls back to `vortex.indexExclude` for non-git workspaces."
+        },
+        "vortex.enableVortexSrc": {
+          "type": "boolean",
+          "default": false,
+          "description": "Enable the Vortex-src (ifdef) language mode. When enabled, .vsrc files are recognized as Vortex ifdef-preprocessed source and the 'Preprocess .vsrc with ifdef' command becomes available."
         },
         "vortex.indexExclude": {
           "type": "string",
